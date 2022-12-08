@@ -1,0 +1,2 @@
+https://www.gerstl.ch/sortiment?q={search}
+https://www.boucherville.ch/de/shop?suchbegriff={search}
