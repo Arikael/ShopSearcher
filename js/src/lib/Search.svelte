@@ -1,13 +1,118 @@
-<script>
-     fetch('configs/swiss_wine.json').then(x => console.log(x))
+<style>
+    .search-select,
+    .search,
+    .search-input {
+        margin-bottom: 1rem;
+    }
+
+    .search,
+    .search-input {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .search-info {
+        margin-bottom: 1rem;
+    }
+</style>
+<script lang="ts">
+    import {shopFiles} from '../config.ts';
+    import {constructSearchUrls, getShops, getShopName, Shop} from './shop';
+    import {onMount} from 'svelte';
+
+    let selectedShopFile = shopFiles.length > 0 ? shopFiles[0] : ''
+    let shopCount = 0
+    let searchTerm = ''
+    let shops: Shop[] = []
+
+    const onSelectShop = async () => {
+        shops = await getShops(selectedShopFile)
+        shopCount = shops.length
+    }
+
+    onMount(() => {
+        toggleShopList(false)
+        onSelectShop()
+
+        if (selectedShopFile) {
+            document.querySelector('.search-input').focus()
+        }
+    })
 
 
-    const search = () => {
+    if (selectedShopFile) {
+        onSelectShop()
+    }
 
+    const onSearch = () => {
+        if (searchTerm && searchTerm.length > 0) {
+            shops = constructSearchUrls(searchTerm, shops)
+            document.querySelectorAll('a.shop-link').forEach((link) => {
+                window.open(link.href, '_blank')
+            })
+        }
+    }
+
+    let timeout: NodeJS.Timeout
+    const delay = 300
+
+    const onSearchKeyUp = () => {
+        if (timeout) {
+            clearTimeout(timeout)
+        }
+        timeout = setTimeout(() => {
+            shops = constructSearchUrls(searchTerm, shops)
+        }, delay)
+    }
+
+
+    let shopListVisible = false
+    let shopListHeader = ''
+    const toggleShopList = (toggle: boolean = null) => {
+        if (toggle === null) {
+            toggle = !shopListVisible
+        }
+
+        shopListVisible = toggle
+        shopListHeader = toggle ? '- Hide shops' : '+ Show shops'
+    }
+
+    const onShopListHeaderClick = () => {
+        toggleShopList()
     }
 </script>
 
-<input type="text">
-<button on:click={search}>
-    Search
-</button>
+<div class="">
+    Shop
+    <select class="search-select" bind:value={selectedShopFile}>
+        {#each shopFiles as shopFile}
+            <option value="{shopFile}">{getShopName(shopFile)}</option>
+        {/each}
+    </select><br/>
+    <input type="text" placeholder="enter search term" class="search-input"
+           bind:value="{searchTerm}" on:keyup="{onSearchKeyUp}"/>
+    <br/>
+    <button class="search" disabled="{searchTerm ? '' : 'disabled'}" on:click={onSearch}>
+        Search
+    </button>
+</div>
+{#if shopCount > 0}
+    <div class="box box--info">
+        <div class="small search-info">
+            Please be aware that searching will open {shopCount} windows/tabs simultaneously<br/>
+            For security reasons you need to allow popups when prompted by the browser (on top of the page)
+        </div>
+        <button class="text-only" on:click="{onShopListHeaderClick}">{shopListHeader}</button>
+        <div class="shop-list {shopListVisible ? '' : 'hidden'}">
+            <ul class="flat">
+                {#each shops as shop}
+                    <li><a class="shop-link" target="_blank" href="{shop.searchUrl}">{shop.name}</a></li>
+                {/each}
+            </ul>
+        </div>
+    </div>
+{/if}
