@@ -21,18 +21,20 @@
 </style>
 <script lang="ts">
     import {shopFiles} from '../config.ts';
-    import {constructSearchUrls, getShops, getDisplayConfigName, Shop} from './shop';
+    import {createShopsWithSearchTerm, getShops, getDisplayConfigName, Shop} from './shop';
     import {onMount} from 'svelte';
 
     let selectedShopFile = shopFiles.length > 0 ? shopFiles[0] : ''
     let shopCount = 0
     let searchTerm = ''
     let shops: Shop[] = []
+    let shopsWithSearchTerms: Shop[] = []
+
+    const setShopsWithSearchTerms = (newShops: Shop[]) => shopsWithSearchTerms = newShops
 
     const onSelectShop = async () => {
         if(selectedShopFile) {
             shops = await getShops(selectedShopFile)
-            console.log(shops)
             shopCount = shops.length
         }
     }
@@ -48,7 +50,6 @@
 
     const onSearch = () => {
         if (searchTerm && searchTerm.length > 0) {
-            shops = constructSearchUrls(searchTerm, shops)
             document.querySelectorAll('a.shop-link').forEach((link) => {
                 window.open(link.href, '_blank')
             })
@@ -57,12 +58,17 @@
 
     let timeout: NodeJS.Timeout
     const delay = 300
-    const onSearchKeyUp = () => {
+    const onSearchKeyUp = (e) => {
+        if(e.which === 0) {
+            return
+        }
+
+        shopsWithSearchTerms = []
         if (timeout) {
             clearTimeout(timeout)
         }
         timeout = setTimeout(() => {
-            shops = constructSearchUrls(searchTerm, shops)
+            shopsWithSearchTerms = createShopsWithSearchTerm(searchTerm, shops)
         }, delay)
     }
 
@@ -90,9 +96,9 @@
         {/each}
     </select><br/>
     <input type="text" placeholder="enter search term" class="search-input"
-           bind:value="{searchTerm}" on:keyup="{onSearchKeyUp}"/>
+           bind:value="{searchTerm}" on:keypress="{onSearchKeyUp}"/>
     <br/>
-    <button class="search" disabled="{searchTerm ? '' : 'disabled'}" on:click={onSearch}>
+    <button class="search" disabled="{shopsWithSearchTerms.length > 0 ? '' : 'disabled'}" on:click={onSearch}>
         Search
     </button>
 </div>
@@ -105,7 +111,7 @@
         <button class="text-only" on:click="{onShopListHeaderClick}">{shopListHeader}</button>
         <div class="shop-list {shopListVisible ? '' : 'hidden'}">
             <ul class="flat">
-                {#each shops as shop}
+                {#each shopsWithSearchTerms as shop}
                     <li><a class="shop-link" target="_blank" href="{shop.searchUrl}">{shop.name}</a></li>
                 {/each}
             </ul>

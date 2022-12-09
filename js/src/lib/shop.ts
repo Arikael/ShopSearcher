@@ -19,7 +19,7 @@ export async function getShops(configName: string): Promise<Shop[]> {
     return json['shops'].map(shop => new Shop(shop)).sort((a, b) => a.name.localeCompare(b.name))
 }
 
-export function constructSearchUrls(searchTerm: string, shops: Shop[]): Shop[] {
+export function createShopsWithSearchTerm(searchTerm: string, shops: Shop[]): Shop[] {
     return shops.map(shop => {
         const newShop = new Shop()
         newShop.name = shop.name
