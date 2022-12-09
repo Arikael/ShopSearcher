@@ -21,7 +21,7 @@
 </style>
 <script lang="ts">
     import {shopFiles} from '../config.ts';
-    import {constructSearchUrls, getShops, getShopName, Shop} from './shop';
+    import {constructSearchUrls, getShops, getDisplayConfigName, Shop} from './shop';
     import {onMount} from 'svelte';
 
     let selectedShopFile = shopFiles.length > 0 ? shopFiles[0] : ''
@@ -30,8 +30,11 @@
     let shops: Shop[] = []
 
     const onSelectShop = async () => {
-        shops = await getShops(selectedShopFile)
-        shopCount = shops.length
+        if(selectedShopFile) {
+            shops = await getShops(selectedShopFile)
+            console.log(shops)
+            shopCount = shops.length
+        }
     }
 
     onMount(() => {
@@ -42,11 +45,6 @@
             document.querySelector('.search-input').focus()
         }
     })
-
-
-    if (selectedShopFile) {
-        onSelectShop()
-    }
 
     const onSearch = () => {
         if (searchTerm && searchTerm.length > 0) {
@@ -59,7 +57,6 @@
 
     let timeout: NodeJS.Timeout
     const delay = 300
-
     const onSearchKeyUp = () => {
         if (timeout) {
             clearTimeout(timeout)
@@ -89,7 +86,7 @@
     Shop
     <select class="search-select" bind:value={selectedShopFile}>
         {#each shopFiles as shopFile}
-            <option value="{shopFile}">{getShopName(shopFile)}</option>
+            <option value="{shopFile}">{getDisplayConfigName(shopFile)}</option>
         {/each}
     </select><br/>
     <input type="text" placeholder="enter search term" class="search-input"
