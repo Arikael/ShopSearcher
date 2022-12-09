@@ -108,6 +108,12 @@ ul.flat li {
     list-style-type: none;
 }
 
+@media (max-width: 960px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
 @media (prefers-color-scheme: light) {
     :root {
         color: #213547;
@@ -119,6 +125,6 @@ ul.flat li {
     }
 
     button {
-        background-color: #f9f9f9;
+        background-color: #b4b4b4;
     }
 }

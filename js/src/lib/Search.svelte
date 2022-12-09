@@ -30,8 +30,6 @@
     let shops: Shop[] = []
     let shopsWithSearchTerms: Shop[] = []
 
-    const setShopsWithSearchTerms = (newShops: Shop[]) => shopsWithSearchTerms = newShops
-
     const onSelectShop = async () => {
         if(selectedShopFile) {
             shops = await getShops(selectedShopFile)
@@ -51,7 +49,7 @@
     const onSearch = () => {
         if (searchTerm && searchTerm.length > 0) {
             document.querySelectorAll('a.shop-link').forEach((link) => {
-                window.open(link.href, '_blank')
+                setTimeout(() => window.open(link.href, '_blank'), 100)
             })
         }
     }
