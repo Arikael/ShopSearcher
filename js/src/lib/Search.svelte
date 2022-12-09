@@ -69,7 +69,6 @@
         }, delay)
     }
 
-
     let shopListVisible = false
     let shopListHeader = ''
     const toggleShopList = (toggle: boolean = null) => {
