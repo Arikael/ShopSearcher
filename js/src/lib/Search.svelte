@@ -49,7 +49,7 @@
     const onSearch = () => {
         if (searchTerm && searchTerm.length > 0) {
             document.querySelectorAll('a.shop-link').forEach((link) => {
-                setTimeout(() => window.open(link.href, '_blank'), 1000)
+                link.click()
             })
         }
     }
