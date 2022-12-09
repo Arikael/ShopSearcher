@@ -7,3 +7,5 @@ simple application which takes a list of shops and searches in those (web) shops
 currently the following implementations are here
 - Go
 - Svelte (JS)
+
+The Svelte sample can be tested here -> https://shop-searcher.netlify.app/
