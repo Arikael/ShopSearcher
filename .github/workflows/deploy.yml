@@ -25,4 +25,3 @@ jobs:
           goarch: ${{ matrix.goarch }}
           goversion: "https://dl.google.com/go/go1.19.4.linux-amd64.tar.gz"
           binary_name: "shop-searcher"
-          extra_files: LICENSE README.md
