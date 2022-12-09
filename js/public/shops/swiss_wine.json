@@ -20,6 +20,7 @@
     "https://rebwein.ch/weine?search=1&keywords={search}",
     "https://cortis.ch/search?q={search}",
     "https://www.neuseeland-weinboutique.ch/de/search?page=search&page_action=query&desc=on&sdesc=on&keywords={search}",
-    "https://ullrich.ch/de/search?sSearch={search}"
+    "https://ullrich.ch/de/search?sSearch={search}",
+    "https://www.peterkuhnweine.ch/de/shop/artikelsuche.htm?suchbegriff={search}&suchen=Suchen"
   ]
 }
