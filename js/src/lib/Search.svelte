@@ -49,7 +49,7 @@
     const onSearch = () => {
         if (searchTerm && searchTerm.length > 0) {
             document.querySelectorAll('a.shop-link').forEach((link) => {
-                link.click()
+                window.open(link.href, '_blank')
             })
         }
     }
@@ -96,9 +96,12 @@
     <input type="text" placeholder="enter search term" class="search-input"
            bind:value="{searchTerm}" on:keypress="{onSearchKeyUp}"/>
     <br/>
-    <button class="search" disabled="{shopsWithSearchTerms.length > 0 ? '' : 'disabled'}" on:click={onSearch}>
+    <button class="search" disabled="{shopsWithSearchTerms.length > 0 && searchTerm ? '' : 'disabled'}" on:click={onSearch}>
         Search
     </button>
+</div>
+<div class="test">
+
 </div>
 {#if shopCount > 0}
     <div class="box box--info">
