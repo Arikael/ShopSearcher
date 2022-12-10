@@ -114,13 +114,10 @@
         Search
     </button>
 </div>
-<div class="test">
-
-</div>
 {#if shopCount > 0}
     <div class="box box--info">
         <div class="small search-info">
-            Please be aware that searching will open {shopCount} windows/tabs simultaneously<br/>
+            Please be aware that searching will open <strong>{shopCount} windows/tabs</strong> simultaneously<br/>
             For security reasons you need to allow popups when prompted by the browser (on top of the page)
         </div>
         <button class="text-only" on:click="{onShopListHeaderClick}">{shopListHeader}</button>
