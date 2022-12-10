@@ -123,6 +123,10 @@ ul.flat li {
 }
 
 @media (max-width: 960px) {
+    #app {
+        padding: 0;
+    }
+
     h1 {
         font-size: 2.5rem;
     }

@@ -90,13 +90,13 @@
 </script>
 
 {#if mobile}
-    <p>
+    <div class="box box--info">
         <strong>It seems you are using a mobile browser<br/>
             Unfortunately the search probably won't work correctly<br/>
             Browser prevent (rightfully so) opening multiple tabs/windows programatically<br/>and
             while this can be allowed on a per page base on desktop it seems mobile browser always prevent it
         </strong>
-    </p>
+    </div>
 {/if}
 
 <div>
