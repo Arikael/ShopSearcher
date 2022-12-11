@@ -3,3 +3,5 @@ export const shopDir = 'shops'
 export const shopFiles = [
     "swiss_wine.json"
 ]
+
+export const isWebExtension: boolean = !(window['browser'] === undefined)

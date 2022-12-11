@@ -1,10 +1,13 @@
 <script lang="ts">
-  import Search from "./lib/Search.svelte";
+    import Search from "./lib/Search.svelte";
+    import {isWebExtension} from "./config.js";
 </script>
 
 <main>
-  <h1>Search Shops</h1>
-  <div class="card">
-    <Search />
-  </div>
+    {#if !isWebExtension }
+        <h1>Search Shops</h1>
+    {/if}
+    <div class="card">
+        <Search/>
+    </div>
 </main>
