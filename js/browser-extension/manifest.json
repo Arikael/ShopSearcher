@@ -1,0 +1,17 @@
+{
+  "name": "ShopSearcher",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Opens a list of shop URLs which are parameterized",
+  "homepage_url": "https://github.com/Arikael/ShopSearcher",
+  "browser_action": {
+    "default_popup": "svelte/dist/index.html",
+    "theme_icons": [{
+      "light": "icons/icon-dark-48.png",
+      "dark": "icons/icon-light-48.png",
+      "size": 48
+    }]
+  },
+  "permissions": ["storage"],
+  "incognito": "spanning"
+}
