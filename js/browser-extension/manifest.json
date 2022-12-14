@@ -5,12 +5,18 @@
   "description": "Opens a list of shop URLs which are parameterized",
   "homepage_url": "https://github.com/Arikael/ShopSearcher",
   "browser_action": {
-    "default_popup": "svelte/dist/index.html",
+    "default_title": "Search multiple shops at once",
+    "default_popup": "popup/index.html",
     "theme_icons": [{
-      "light": "icons/icon-dark-48.png",
-      "dark": "icons/icon-light-48.png",
-      "size": 48
-    }]
+      "light": "icons/icon-light-32.png",
+      "dark": "icons/icon-dark-32.png",
+      "size": 32
+    },
+      {
+        "light": "icons/icon-light-16.png",
+        "dark": "icons/icon-dark-16.png",
+        "size": 16
+      }]
   },
   "permissions": ["storage"],
   "incognito": "spanning"
