@@ -83,7 +83,7 @@
     }
 </script>
 
-{#if mobile}
+{#if mobile && !isWebExtension}
    <MobileInfo />
 {/if}
 
