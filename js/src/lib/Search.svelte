@@ -30,9 +30,14 @@
     let selectedShopFile = shopFiles.length > 0 ? shopFiles[0] : ''
     let shopCount = 0
     let searchTerm = ''
+    let oldSearchTerm = searchTerm
     let shops: Shop[] = []
     let shopsWithSearchTerms: Shop[] = []
     let mobile = true
+
+    $: canSearch = shopsWithSearchTerms.length > 0 && searchTerm && (oldSearchTerm.length > 0
+            && searchTerm != oldSearchTerm || oldSearchTerm.length == 0)
+
 
     const onSelectShop = async () => {
         if (selectedShopFile) {
@@ -52,6 +57,7 @@
 
     const onSearch = () => {
         if (searchTerm && searchTerm.length > 0) {
+            oldSearchTerm = searchTerm
             document.querySelectorAll('a.shop-link').forEach((link) => {
                 if (isWebExtension) {
                     browser.tabs.create({
@@ -96,7 +102,7 @@
     <input type="text" placeholder="enter search term" class="search-input"
            bind:value="{searchTerm}" on:keypress="{onSearchKeyUp}"/>
     <br/>
-    <button class="search" disabled="{shopsWithSearchTerms.length > 0 && searchTerm ? '' : 'disabled'}"
+    <button class="search" disabled="{canSearch ? '' : 'disabled'}"
             on:click={onSearch}>
         Search
     </button>
