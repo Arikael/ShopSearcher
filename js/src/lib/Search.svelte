@@ -53,13 +53,12 @@
     const onSearch = () => {
         if (searchTerm && searchTerm.length > 0) {
             document.querySelectorAll('a.shop-link').forEach((link) => {
-                if(isWebExtension) {
+                if (isWebExtension) {
                     browser.tabs.create({
                         url: link.href,
                         active: false
                     })
-                }
-                else {
+                } else {
                     window.open(link.href, '_blank')
                 }
             })
@@ -84,7 +83,7 @@
 </script>
 
 {#if mobile && !isWebExtension}
-   <MobileInfo />
+    <MobileInfo/>
 {/if}
 
 <div>
@@ -106,8 +105,10 @@
     <div class="box box--info">
         <div class="small search-info">
             Please be aware that searching will open <strong>{shopCount} windows/tabs</strong> simultaneously<br/>
-            For security reasons you need to allow popups when prompted by the browser (on top of the page)
+            {#if !isWebExtension}
+                For security reasons you need to allow popups when prompted by the browser (on top of the page)
+            {/if}
         </div>
-        <ShopList shopsWithSearchTerms={shopsWithSearchTerms} />
+        <ShopList shopsWithSearchTerms={shopsWithSearchTerms}/>
     </div>
 {/if}
