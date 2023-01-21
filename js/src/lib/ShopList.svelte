@@ -27,7 +27,7 @@
 <div class="shop-list {shopListVisible ? '' : 'hidden'}">
     <ul class="flat">
         {#each shopsWithSearchTerms as shop}
-            <li><a class="shop-link" target="_blank" href="{shop.searchUrl}">{shop.name}</a></li>
+            <li><a class="shop-link" target="_blank" href="{shop.url}">{shop.name}</a></li>
         {/each}
     </ul>
 </div>

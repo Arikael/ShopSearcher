@@ -68,6 +68,10 @@
                     window.open(link.href, '_blank')
                 }
             })
+
+            if(isWebExtension && isMobile()) {
+                browser.tabs.getCurrent().then(tab => browser.tabs.remove(tab.id))
+            }
         }
     }
 
@@ -110,9 +114,12 @@
 {#if shopCount > 0}
     <div class="box box--info">
         <div class="small search-info">
-            Please be aware that searching will open <strong>{shopCount} windows/tabs</strong> simultaneously<br/>
+            Please be aware that searching will open <strong>{shopCount} windows/tabs</strong> simultaneously
             {#if !isWebExtension}
-                For security reasons you need to allow popups when prompted by the browser (on top of the page)
+                <br />For security reasons you need to allow popups when prompted by the browser (on top of the page)
+            {/if}
+            {#if isWebExtension && isMobile()}
+                <br />this window will close itself, when hitting "search"
             {/if}
         </div>
         <ShopList shopsWithSearchTerms={shopsWithSearchTerms}/>
