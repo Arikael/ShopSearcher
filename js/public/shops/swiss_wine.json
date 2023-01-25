@@ -22,11 +22,6 @@
       "tags": []
     },
     {
-      "url": "https://maisonlibre.ch/?s={search}&post_type=product",
-      "enabled": true,
-      "tags": []
-    },
-    {
       "url": "https://vinothek-brancaia.ch/catalogsearch/result/?q={search}",
       "enabled": true,
       "tags": []
@@ -112,7 +107,7 @@
       "tags": []
     },
     {
-      "url": "https://www.peterkuhnweine.ch/de/shop/artikelsuche.htm?suchbegriff={search}&suchen=Suchen",
+      "url": "https://www.terravigna.ch/catalogsearch/result/?cat=0&q={search}",
       "enabled": true,
       "tags": []
     }
