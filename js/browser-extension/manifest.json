@@ -19,5 +19,11 @@
       }]
   },
   "permissions": [],
-  "incognito": "spanning"
+  "incognito": "spanning",
+  "browser_specific_settings": {
+    "gecko": {
+      "strict_min_version": "45.0"
+    }
+  }
+
 }
