@@ -57,6 +57,10 @@
 
     const onSearch = () => {
         if (searchTerm && searchTerm.length > 0) {
+            if(isWebExtension && isMobile()) {
+                window.close()
+            }
+
             oldSearchTerm = searchTerm
             document.querySelectorAll('a.shop-link').forEach((link) => {
                 if (isWebExtension) {
@@ -68,10 +72,6 @@
                     window.open(link.href, '_blank')
                 }
             })
-
-            if(isWebExtension && isMobile()) {
-                browser.tabs.getCurrent().then(tab => browser.tabs.remove(tab.id))
-            }
         }
     }
 
@@ -91,11 +91,9 @@
         }, delay)
     }
 </script>
-
 {#if mobile && !isWebExtension}
     <MobileInfo/>
 {/if}
-
 <div>
     Shop
     <select class="search-select" bind:value={selectedShopFile}>
