@@ -6,22 +6,22 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --outDir ./dist/svelte",
-    "build:firefox": "npm run build && shx rm -rf ./browser-extension/popup/* && shx cp -r ./dist/svelte/* ./browser-extension/popup && web-ext build --source-dir ./browser-extension --artifacts-dir ./dist/firefox --overwrite-dest",
-    "run:firefox": "npm run build:firefox && web-ext run --source-dir ./browser-extension",
-    "run:firefox-mobile": "npm run build:firefox && cd browser-extension && web-ext run -t firefox-android --",
+    "build:firefox": "npm run build:firefox && web-ext build --source-dir ./browser-extension --artifacts-dir ./dist/firefox --overwrite-dest",
+    "run:firefox": "node scripts/sync-for-firefox.js && node scripts/run-firefox.js --browser firefox",
+    "run:firefox-mobile": "node scripts/sync-for-firefox.js --browser firefox-mobile",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig tsconfig.json"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.0",
     "@tsconfig/svelte": "^3.0.0",
+    "dotenv": "^16.0.3",
     "svelte": "^3.52.0",
     "svelte-check": "^3.0.0",
     "svelte-preprocess": "^5.0.0",
     "tslib": "^2.4.0",
     "typescript": "^4.6.4",
     "vite": "^4.0.0",
-    "web-ext": "^7.4.0",
-    "shx": "^0.3.4"
+    "web-ext": "^7.4.0"
   }
 }

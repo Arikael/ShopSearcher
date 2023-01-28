@@ -36,7 +36,7 @@
     let mobile = true
 
     $: canSearch = shopsWithSearchTerms.length > 0 && searchTerm && (oldSearchTerm.length > 0
-            && searchTerm != oldSearchTerm || oldSearchTerm.length == 0)
+        && searchTerm != oldSearchTerm || oldSearchTerm.length == 0)
 
 
     const onSelectShop = async () => {
@@ -57,7 +57,7 @@
 
     const onSearch = () => {
         if (searchTerm && searchTerm.length > 0) {
-            if(isWebExtension && isMobile()) {
+            if (isWebExtension && isMobile()) {
                 window.close()
             }
 
@@ -114,10 +114,10 @@
         <div class="small search-info">
             Please be aware that searching will open <strong>{shopCount} windows/tabs</strong> simultaneously
             {#if !isWebExtension}
-                <br />For security reasons you need to allow popups when prompted by the browser (on top of the page)
+                <br/>For security reasons you need to allow popups when prompted by the browser (on top of the page)
             {/if}
             {#if isWebExtension && isMobile()}
-                <br />this window will close itself, when hitting "search"
+                <br/>this window will close itself, when hitting "search"
             {/if}
         </div>
         <ShopList shopsWithSearchTerms={shopsWithSearchTerms}/>
