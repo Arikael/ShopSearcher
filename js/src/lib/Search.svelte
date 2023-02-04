@@ -62,16 +62,16 @@
             }
 
             oldSearchTerm = searchTerm
-            document.querySelectorAll('a.shop-link').forEach((link) => {
+            shopsWithSearchTerms.filter(shop => shop.enabled).forEach((shop) => {
                 if (isWebExtension) {
                     browser.tabs.create({
-                        url: link.href,
+                        url: shop.url,
                         active: false
                     })
                 } else {
-                    window.open(link.href, '_blank')
+                    window.open(shop.url, '_blank')
                 }
-            })
+            });
         }
     }
 
