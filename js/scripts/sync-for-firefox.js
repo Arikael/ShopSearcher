@@ -1,14 +1,13 @@
-import child_process from 'child_process'
 import * as fs from 'fs';
 console.log(process.argv)
-const popupDir = './browser-extension/popup/';
-const svelteDir = './dist/svelte';
+const destinationDir = './browser-extension/popup/';
+const sourceDir = './dist/svelte';
 
-fs.watch(svelteDir, {}, (eventType, filename) => {
-    console.log(eventType)
-})
+// fs.watch(sourceDir, {}, (eventType, filename) => {
+//     console.log(eventType)
+// })
 
-fs.rmSync(popupDir, {recursive: true, force: true});
-fs.mkdirSync(popupDir)
-fs.cpSync(svelteDir, popupDir, {recursive: true})
-console.info(`copied files from ${svelteDir} to ${popupDir}`);
+fs.rmSync(destinationDir, {recursive: true, force: true});
+fs.mkdirSync(destinationDir)
+fs.cpSync(sourceDir, destinationDir, {recursive: true})
+console.info(`copied files from ${sourceDir} to ${destinationDir}`);
