@@ -1,4 +1,5 @@
 # ShopSearcher
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ce6ba82d-fddc-4095-838c-a1e5fc1847b8/deploy-status)](https://app.netlify.com/sites/shop-searcher/deploys)
 
 This is a simple app and firefox extensio built with vite and svelte
 
