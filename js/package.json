@@ -1,12 +1,12 @@
 {
   "name": "shop-searcher",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build --outDir ./dist/svelte",
-    "build:firefox": "npm run build:firefox && web-ext build --source-dir ./browser-extension --artifacts-dir ./dist/firefox --overwrite-dest",
+    "build:firefox": "npm run build && node scripts/sync-for-firefox.js && web-ext build --source-dir ./browser-extension --artifacts-dir ./dist/firefox --overwrite-dest",
     "run:firefox": "node scripts/sync-for-firefox.js && node scripts/run-firefox.js --browser firefox",
     "run:firefox-mobile": "node scripts/sync-for-firefox.js --browser firefox-mobile",
     "preview": "vite preview",
