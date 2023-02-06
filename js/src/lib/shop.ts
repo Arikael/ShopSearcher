@@ -20,7 +20,8 @@ export async function getShops(configName: string): Promise<Shop[]> {
     const response = await fetch(`${shopDir}/${configName}`)
     const json = await response.json()
 
-    return json['shops'].map(shop => new Shop(shop)).sort((a, b) => a.name.localeCompare(b.name))
+    return json['shops'].map(shop => new Shop(shop))
+        .sort((a, b) =>  (+b.enabled) - (+a.enabled) || a.name.localeCompare(b.name))
 }
 
 export function createShopsWithSearchTerm(searchTerm: string, shops: Shop[]): Shop[] {

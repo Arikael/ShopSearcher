@@ -69,7 +69,10 @@
     {
       "url": "https://champagne.zuerich/?s={search}",
       "enabled": true,
-      "tags": []
+      "tags": [
+        "champagner",
+        "test"
+      ]
     },
     {
       "url": "https://www.studer-vinothek.ch/de/shop/suche?suchbegriff={search}",
@@ -79,7 +82,9 @@
     {
       "url": "https://www.haus-oesterreich.ch/shop/?ixwpss={search}",
       "enabled": true,
-      "tags": []
+      "tags": [
+        "Austria"
+      ]
     },
     {
       "url": "https://rebwein.ch/weine?search=1&keywords={search}",
