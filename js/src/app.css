@@ -49,7 +49,7 @@ td {
 
 a {
     font-weight: 500;
-    color: #646cff;
+    color: #a2a6dd;
     text-decoration: inherit;
 }
 
@@ -113,7 +113,7 @@ button.text-only:focus-visible {
 }
 
 .box--info {
-    background: rgba(17, 21, 34, 0.51);
+    background: rgb(60, 61, 66);
 }
 
 .small {
@@ -147,8 +147,17 @@ button.text-only:focus-visible {
         background-color: #ffffff;
     }
 
+    a {
+        color: #282d6f;
+    }
+
     a:hover {
         color: #747bff;
+    }
+
+    .tag {
+        background: #936bbb;
+        color: #ffffffed;
     }
 
     button.text-only {
@@ -156,7 +165,12 @@ button.text-only:focus-visible {
     }
 
     .box--info {
-        background: #c2bbd370;
-        border-color: #835edd8f;
+        background: #bfc2d1a1;
+        border-color: #696c798c;
+    }
+
+    .search-input {
+        background: #f1eeee;
+        border: 1px solid #00000073;
     }
 }
