@@ -109,16 +109,19 @@
         Search
     </button>
 </div>
+<div class="small search-info">
+    Please be aware that searching will open <strong>{shopCount} windows/tabs</strong> simultaneously
+    {#if !isWebExtension}
+        <br/>For security reasons you need to allow popups when prompted by the browser (on top of the page)
+    {/if}
+    {#if isWebExtension && isMobile()}
+        <br/>this window will close itself, when hitting "search"
+    {/if}
+</div>
 {#if shopCount > 0}
     <div class="box box--info">
-        <div class="small search-info">
-            Please be aware that searching will open <strong>{shopCount} windows/tabs</strong> simultaneously
-            {#if !isWebExtension}
-                <br/>For security reasons you need to allow popups when prompted by the browser (on top of the page)
-            {/if}
-            {#if isWebExtension && isMobile()}
-                <br/>this window will close itself, when hitting "search"
-            {/if}
+        <div class="box-header">
+            Available Shops
         </div>
         <ShopList shopsWithSearchTerms={shopsWithSearchTerms}/>
     </div>
