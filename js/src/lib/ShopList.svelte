@@ -1,15 +1,23 @@
 <script lang="ts">
-    import {Shop} from "./shop";
-    import {onMount} from "svelte";
+    import {Shop} from './shop'
+    import Tag from './Tag.svelte'
 
-    let tags: string[] = []
+    let tags: string[]
+    let tagStates: Record<string, boolean> = {}
     export let shopsWithSearchTerms: Shop[] = []
+
     $: {
         tags = [...new Set(shopsWithSearchTerms.map(x => x.tags).flat())]
+        for (let tag in tags) {
+            tagStates[tag] = false
+        }
     }
 
-    let shopListHeader = ''
     let allShopsToggle = false
+
+    const isTagEnabled = (tag: string): boolean => {
+        return tagStates[tag]
+    }
 
     const onToggleAllShops = () => {
         allShopsToggle = !allShopsToggle
@@ -17,10 +25,23 @@
         shopsWithSearchTerms = shopsWithSearchTerms
     }
 
-    const toggleTag = (tag) => {
-        shopsWithSearchTerms.filter(shop => shop.tags.includes(tag))
-            .forEach(shop => shop.enabled = !shop.enabled)
+    const toggleTag = (event) => {
+        const tag = event.detail.tag
+        const currentTagState = isTagEnabled(tag)
+        const newTagState = !currentTagState
+
+        if (!currentTagState) {
+            shopsWithSearchTerms.filter(shop => shop.tags.includes(tag) && shop.enabled === false)
+                .forEach(shop => shop.enabled = true)
+        } else {
+            shopsWithSearchTerms.filter(shop => shop.tags.includes(tag) && shop.enabled === true &&
+                !shop.tags.filter(t => t !== tag).some(t => isTagEnabled(t)))
+                .forEach(shop => shop.enabled = false)
+        }
+
         shopsWithSearchTerms = shopsWithSearchTerms
+        tagStates[tag] = newTagState
+        tagStates = tagStates
     }
 </script>
 <div class="shop-list">
@@ -28,7 +49,7 @@
         Special Tags:
         <div class="tags">
             {#each tags as tag}
-                <span class="tag tag-clickable" on:click={() => toggleTag(tag)}>{tag}</span>
+                <Tag isClickable="true" tag="{tag}" on:toggleTag="{toggleTag}"></Tag>
             {/each}
         </div>
     </div>
@@ -50,7 +71,7 @@
                 </td>
                 <td>
                     {#each shop.tags as tag}
-                        <span class="tag">{tag}</span>
+                        <Tag tag="{tag}"></Tag>
                     {/each}
                 </td>
             </tr>
