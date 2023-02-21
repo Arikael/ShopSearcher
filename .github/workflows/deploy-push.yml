@@ -12,11 +12,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: build
         run: |
-          cd ./js
           npm ci
           npm run build
       - name: deploy
         env:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        run: netlify deploy --dir=./js/dist/svelte --prod
+        run: netlify deploy --dir=./dist/svelte --prod
