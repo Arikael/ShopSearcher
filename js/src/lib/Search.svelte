@@ -38,7 +38,6 @@
     $: canSearch = shopsWithSearchTerms.length > 0 && searchTerm && (oldSearchTerm.length > 0
         && searchTerm != oldSearchTerm || oldSearchTerm.length == 0)
 
-
     const onSelectShop = async () => {
         if (selectedShopFile) {
             shops = await getShops(selectedShopFile)
@@ -110,7 +109,7 @@
     </button>
 </div>
 <div class="small search-info">
-    Please be aware that searching will open <strong>{shopCount} windows/tabs</strong> simultaneously
+    Please be aware that searching will open up to <strong>{shopCount} windows/tabs</strong> simultaneously
     {#if !isWebExtension}
         <br/>For security reasons you need to allow popups when prompted by the browser (on top of the page)
     {/if}
@@ -123,6 +122,12 @@
         <div class="box-header">
             Available Shops
         </div>
-        <ShopList shopsWithSearchTerms={shopsWithSearchTerms}/>
+        {#if shopsWithSearchTerms.length === 0}
+            <div class="default-padding">
+                enter a search term to see the shops
+            </div>
+        {:else}
+            <ShopList shopsWithSearchTerms={shopsWithSearchTerms}/>
+        {/if}
     </div>
 {/if}

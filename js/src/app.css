@@ -137,6 +137,10 @@ button.text-only:focus-visible {
     border: 1px solid var(--border-color);
 }
 
+.default-padding {
+    padding: 1rem 0.5rem;
+}
+
 .small {
     font-size: 0.75rem;
 }
