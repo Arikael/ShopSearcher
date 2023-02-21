@@ -2,8 +2,6 @@ name: deploy on push
 
 on:
   push:
-    paths:
-      - 'js/**'
 
 jobs:
   release-js:
