@@ -145,18 +145,6 @@ button.text-only:focus-visible {
     display: none;
 }
 
-.tag {
-    padding: 4px 8px;
-    background: rebeccapurple;
-    border-radius: var(--default-border-radius);
-    margin: 0 4px;
-}
-
-.tag-clickable:hover {
-    cursor: pointer;
-    background: #8e76a7;
-}
-
 .tag-list {
     padding: 1rem 0.5rem;
 }
