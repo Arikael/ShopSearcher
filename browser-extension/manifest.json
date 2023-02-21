@@ -22,7 +22,8 @@
   "incognito": "spanning",
   "browser_specific_settings": {
     "gecko": {
-      "strict_min_version": "45.0"
+      "id": "{a86e4025-43ca-4e5f-aecd-a739ef38d5a7}",
+      "strict_min_version": "57.0"
     }
   }
 }
