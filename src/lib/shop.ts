@@ -24,9 +24,16 @@ export async function getShops(configName: string): Promise<Shop[]> {
         .sort((a, b) =>  (+b.enabled) - (+a.enabled) || a.name.localeCompare(b.name))
 }
 
-export function createShopsWithSearchTerm(searchTerm: string, shops: Shop[]): Shop[] {
-    return shops.map(shop => {
+export function createShopsWithSearchTerm(searchTerm: string, originalShops: Shop[], currentShops: Shop[]): Shop[] {
+    const shopStates: Record<string, boolean> = {}
+    currentShops.map(shop => shopStates[shop.name] = shop.enabled)
+
+    return originalShops.map(shop => {
         const newShop = new Shop(shop)
+        if(shopStates[shop.name] !== undefined) {
+            newShop.enabled =  shopStates[shop.name]
+        }
+
         newShop.url = shop.url.replace(searchTermPattern, searchTerm)
 
         return newShop

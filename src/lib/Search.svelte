@@ -85,7 +85,7 @@
             clearTimeout(timeout)
         }
         timeout = setTimeout(() => {
-            shopsWithSearchTerms = createShopsWithSearchTerm(searchTerm, shops)
+            shopsWithSearchTerms = createShopsWithSearchTerm(searchTerm, shops, shopsWithSearchTerms)
         }, delay)
     }
 </script>
