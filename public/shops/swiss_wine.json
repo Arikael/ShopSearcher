@@ -4,57 +4,77 @@
     {
       "url": "https://www.gerstl.ch/sortiment?q={search}",
       "enabled": true,
-      "tags": []
+      "tags": [
+        "Big"
+      ]
     },
     {
       "url": "https://www.boucherville.ch/de/shop?suchbegriff={search}",
       "enabled": true,
-      "tags": []
+      "tags": [
+        "Big"
+      ]
     },
     {
       "url": "https://www.more-than-wine.com/en/recherche?controller=search&orderby=position&orderway=desc&search_query={search}&submit_search=",
-      "enabled": true,
-      "tags": []
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
     },
     {
       "url": "https://maisonlibre.ch/?s={search}&post_type=product",
-      "enabled": true,
-      "tags": []
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
     },
     {
       "url": "https://vinothek-brancaia.ch/catalogsearch/result/?q={search}",
       "enabled": true,
-      "tags": []
+      "tags": [
+        "Big"
+      ]
     },
     {
       "url": "https://studiowino.ch/search?type=product%2Carticle%2Cpage%2Ccollection&q={search}*",
-      "enabled": true,
-      "tags": []
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
     },
     {
       "url": "https://www.cultivino.ch/sortiment/wein/SearchForm?q={search}",
       "enabled": true,
-      "tags": []
+      "tags": [
+        "Natural"
+      ]
     },
     {
       "url": "https://www.selection-widmer.ch/suche?controller=search&s={search}",
-      "enabled": true,
+      "enabled": false,
       "tags": []
     },
     {
       "url": "https://www.trallala-weine.ch/?s={search}&post_type=product&title=1&excerpt=1&content=1&categories=1&attributes=1&tags=1&sku=1&orderby=title-DESC&ixwps=1",
-      "enabled": true,
-      "tags": []
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
     },
     {
       "url": "https://www.moevenpick-wein.com/de/catalogsearch/result/?q={search}",
       "enabled": true,
-      "tags": []
+      "tags": [
+        "Big"
+      ]
     },
     {
       "url": "https://www.martel.ch/suche?search={search}",
       "enabled": true,
-      "tags": []
+      "tags": [
+        "Big"
+      ]
     },
     {
       "url": "https://cavedereve.ch/de/suche?q={search}",
@@ -68,10 +88,9 @@
     },
     {
       "url": "https://champagne.zuerich/?s={search}",
-      "enabled": true,
+      "enabled": false,
       "tags": [
-        "champagner",
-        "test"
+        "Champagner"
       ]
     },
     {
@@ -81,39 +100,200 @@
     },
     {
       "url": "https://www.haus-oesterreich.ch/shop/?ixwpss={search}",
-      "enabled": true,
+      "enabled": false,
       "tags": [
         "Austria"
       ]
     },
     {
       "url": "https://rebwein.ch/weine?search=1&keywords={search}",
-      "enabled": true,
-      "tags": []
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
     },
     {
       "url": "https://cortis.ch/search?q={search}",
-      "enabled": true,
+      "enabled": false,
       "tags": []
     },
     {
       "url": "https://www.neuseeland-weinboutique.ch/de/search?page=search&page_action=query&desc=on&sdesc=on&keywords={search}",
-      "enabled": true,
-      "tags": []
+      "enabled": false,
+      "tags": [
+        "New Zealand"
+      ]
     },
     {
       "url": "https://ullrich.ch/de/search?sSearch={search}",
       "enabled": true,
-      "tags": []
+      "tags": [
+        "Big"
+      ]
     },
     {
       "url": "https://www.peterkuhnweine.ch/de/shop/artikelsuche.htm?suchbegriff={search}&suchen=Suchen",
-      "enabled": true,
+      "enabled": false,
       "tags": []
     },
     {
       "url": "https://www.terravigna.ch/catalogsearch/result/?cat=0&q={search}",
       "enabled": true,
+      "tags": []
+    },
+    {
+      "url": "https://www.schubiweine.ch/search.html?searchtext={search}",
+      "enabled": true,
+      "tags": []
+    },
+    {
+      "url": "https://www.casadelvino.ch/de/shop/suche?suchbegriff={search}",
+      "enabled": true,
+      "tags": []
+    },
+    {
+      "url": "https://www.flaschenpost.ch/en/wine?searchParam={search}",
+      "enabled": true,
+      "tags": [
+        "Big"
+      ]
+    },
+    {
+      "url": "https://www.selection-schwander.ch/search?sSearch={search}&n=1000",
+      "enabled": true,
+      "tags": []
+    },
+    {
+      "url": "https://www.weinheld.ch/index.php?suche=show&kat=produktsuche&s=d&wh={search}&x=0&y=0&sub_produktsuche=Suchen",
+      "enabled": false,
+      "tags": [
+        "Austria"
+      ]
+    },
+    {
+      "url": "https://www.vergani.ch/catalogsearch/result/?q=test#q={search}",
+      "enabled": false,
+      "tags": [
+        "Italy"
+      ]
+    },
+    {
+      "url": "https://www.hischierweine.ch/suchen?q={search}",
+      "enabled": false,
+      "tags": []
+    },
+    {
+      "url": "https://www.vonsalis-wein.ch/search?q={search}",
+      "enabled": false,
+      "tags": []
+    },
+    {
+      "url": "https://www.secli-weinwelt.ch/search?sSearch={search}",
+      "enabled": false,
+      "tags": []
+    },
+    {
+      "url": "https://www.daniel-vins.ch/de/catalogsearch/result/?isprimeur=0&q={search}",
+      "enabled": true,
+      "tags": []
+    },
+    {
+      "url": "https://blume-wein.ch/shop?search={search}&order=",
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
+    },
+    {
+      "url": "https://shop.les-vignes.ch/shop?searchText={search}&",
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
+    },
+    {
+      "url": "https://invinositis.com/pages/search-results-page?q=test",
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
+    },
+    {
+      "url": "https://shop.suedhang.com/?searchstr=test",
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
+    },
+    {
+      "url": "https://www.lepasseurdevin.ch/?s=test",
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
+    },
+    {
+      "url": "https://amisduchateau.ch/?s={search}&post_type=product",
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
+    },
+    {
+      "url": "https://www.vivelevin.ch/?s={search}&post_type=product&title=1&excerpt=1&content=1&categories=1&attributes=1&tags=1&sku=1&orderby=date-DESC&ixwps=1",
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
+    },
+    {
+      "url": "https://www.soufrepascasulfite.ch/search-results?q={search}",
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
+    },
+    {
+      "url": "https://www.arvi.ch/DE/filterSearch?q={search}",
+      "enabled": true,
+      "tags": []
+    },
+    {
+      "url": "https://deraisin.ch/?s={search}",
+      "enabled": false,
+      "tags": [
+        "Natural"
+      ]
+    },
+    {
+      "url": "https://www.champagner-schweiz.ch/search?q={search}&filter=0&module=10861178819",
+      "enabled": false,
+      "tags": [
+        "Champagner"
+      ]
+    },
+    {
+      "url": "https://the-champagne.ch/shop?searchText={search}&",
+      "enabled": false,
+      "tags": [
+        "Champagner"
+      ]
+    },
+    {
+      "url": "https://tanner.feinweinsein.ch/?s={search}",
+      "enabled": false,
+      "tags": []
+    },
+    {
+      "url": "https://www.smithandsmith.ch/de/shop/artikelsuche?suchbegriff={search}",
+      "enabled": true,
+      "tags": [
+        "Natural"
+      ]
+    },
+    {
+      "url": "https://shop.ersanwein.com/wein?text={search}",
+      "enabled": false,
       "tags": []
     }
   ]
