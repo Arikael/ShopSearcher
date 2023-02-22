@@ -171,7 +171,7 @@
       ]
     },
     {
-      "url": "https://www.vergani.ch/catalogsearch/result/?q=test#q={search}",
+      "url": "https://www.vergani.ch/catalogsearch/result/?q={search}",
       "enabled": false,
       "tags": [
         "Italy"
@@ -212,21 +212,21 @@
       ]
     },
     {
-      "url": "https://invinositis.com/pages/search-results-page?q=test",
+      "url": "https://invinositis.com/pages/search-results-page?q={search}",
       "enabled": false,
       "tags": [
         "Natural"
       ]
     },
     {
-      "url": "https://shop.suedhang.com/?searchstr=test",
+      "url": "https://shop.suedhang.com/?searchstr={search}",
       "enabled": false,
       "tags": [
         "Natural"
       ]
     },
     {
-      "url": "https://www.lepasseurdevin.ch/?s=test",
+      "url": "https://www.lepasseurdevin.ch/?s={search}",
       "enabled": false,
       "tags": [
         "Natural"
