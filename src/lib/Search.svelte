@@ -81,7 +81,6 @@
             return
         }
 
-        shopsWithSearchTerms = []
         if (timeout) {
             clearTimeout(timeout)
         }
@@ -122,7 +121,7 @@
         <div class="box-header">
             Available Shops
         </div>
-        {#if shopsWithSearchTerms.length === 0}
+        {#if searchTerm.length === 0}
             <div class="default-padding">
                 enter a search term to see the shops
             </div>
