@@ -49,7 +49,7 @@
         Special Tags:
         <div class="tags">
             {#each tags as tag}
-                <Tag isClickable="true" isSelected="{isTagEnabled(tag)}" tag="{tag}" on:toggleTag="{toggleTag}"></Tag>
+                <Tag isClickable="{true}" isSelected="{isTagEnabled(tag)}" tag="{tag}" on:toggleTag="{toggleTag}"></Tag>
             {/each}
         </div>
     </div>

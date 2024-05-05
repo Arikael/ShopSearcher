@@ -1,8 +1,8 @@
 import {searchTermPattern, shopDir} from '../config';
 
 export class Shop {
-    name: string
-    url: string
+    name = ''
+    url = ''
     enabled = true
     tags: string[] = []
 
@@ -11,7 +11,10 @@ export class Shop {
             this.url = shop.url
             this.name = new URL(this.url).host.replace('www.', '')
             this.enabled = shop.enabled
-            this.tags = shop.tags
+
+            if(shop.tags) {
+                this.tags = shop.tags
+            }
         }
     }
 }
@@ -20,8 +23,8 @@ export async function getShops(configName: string): Promise<Shop[]> {
     const response = await fetch(`${shopDir}/${configName}`)
     const json = await response.json()
 
-    return json['shops'].map(shop => new Shop(shop))
-        .sort((a, b) =>  (+b.enabled) - (+a.enabled) || a.name.localeCompare(b.name))
+    return json['shops'].map((shop: unknown) => new Shop(shop))
+        .sort((a: Shop, b: Shop) =>  (+b.enabled) - (+a.enabled) || a.name.localeCompare(b.name))
 }
 
 export function createShopsWithSearchTerm(searchTerm: string, originalShops: Shop[], currentShops: Shop[]): Shop[] {

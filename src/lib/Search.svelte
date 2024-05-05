@@ -20,7 +20,7 @@
     }
 </style>
 <script lang="ts">
-    import {isWebExtension, shopFiles} from '../config.ts';
+    import {isWebExtension, shopFiles} from '../config';
     import {createShopsWithSearchTerm, getShops, getDisplayConfigName, Shop} from './shop';
     import {onMount} from 'svelte';
     import {isMobile} from "./utils.js";
@@ -40,7 +40,10 @@
 
     const onSelectShop = async () => {
         if (selectedShopFile) {
+            searchTerm = ''
+            shopsWithSearchTerms = []
             shops = await getShops(selectedShopFile)
+
             shopCount = shops.length
         }
     }
@@ -50,7 +53,7 @@
         onSelectShop()
 
         if (selectedShopFile) {
-            document.querySelector('.search-input').focus()
+            document.querySelector('.search-input')?.focus()
         }
     })
 
@@ -94,7 +97,7 @@
 {/if}
 <div>
     Shop
-    <select class="search-select" bind:value={selectedShopFile}>
+    <select class="search-select" bind:value={selectedShopFile} on:change={onSelectShop}>
         {#each shopFiles as shopFile}
             <option value="{shopFile}">{getDisplayConfigName(shopFile)}</option>
         {/each}
@@ -102,7 +105,7 @@
     <input type="text" placeholder="enter search term" class="search-input"
            bind:value="{searchTerm}" on:keypress="{onSearchKeyUp}"/>
     <br/>
-    <button class="search" disabled="{canSearch ? '' : 'disabled'}"
+    <button class="search" disabled="{!canSearch}"
             on:click={onSearch}>
         Search
     </button>
