@@ -125,7 +125,7 @@
       ]
     },
     {
-      "url": "https://ullrich.ch/de/search?sSearch={search}",
+      "url": "https://ullrich.ch/de/search?search={search}",
       "enabled": true,
       "tags": [
         "Big"
@@ -293,6 +293,11 @@
     },
     {
       "url": "https://shop.ersanwein.com/wein?text={search}",
+      "enabled": false,
+      "tags": []
+    },
+    {
+      "url": "https://www.vogel-vins.ch/Scripts/Modules/Search/Search.aspx?idn=9606&term={search}",
       "enabled": false,
       "tags": []
     }
