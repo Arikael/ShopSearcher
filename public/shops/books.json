@@ -1,0 +1,17 @@
+{
+  "name": "Book Stores",
+  "shops": [
+    {
+      "url": "https://www.kobo.com/ch/en/search?query={search}",
+      "enabled": true
+    },
+    {
+      "url": "https://www.exlibris.ch/de/suche/?q={search}",
+      "enabled": true
+    },
+    {
+      "url": "https://www.orellfuessli.ch/suche?sq={search}",
+      "enabled": true
+    }
+  ]
+}
